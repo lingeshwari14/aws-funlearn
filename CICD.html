@@ -1,0 +1,122 @@
+<!-- CICD.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CI/CD Flashcards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card { perspective: 1000px; }
+    .card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .card-front img {
+      width: 64px; height: 64px;
+      margin-bottom: 0.5rem;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white font-sans min-h-screen flex flex-col items-center justify-start text-center p-6 transition-colors duration-300">
+  <h1 class="text-3xl font-bold text-red-500 mb-4">CI/CD Flashcards</h1>
+  <a href="categories.html" class="mb-4 text-red-400 hover:underline">← Back to Categories</a>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+
+    <!-- Sample Flashcard -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-red-100 text-red-800 font-semibold">
+          <span>AWS CodePipeline</span>
+        </div>
+        <div class="card-back bg-red-600 text-white font-medium">
+          Automates build, test, and deployment phases.
+        </div>
+      </div>
+    </div>
+
+    <!-- 19 More Cards -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeBuild</span></div><div class="card-back bg-red-600 text-white font-medium">Compiles source code and runs tests automatically.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeDeploy</span></div><div class="card-back bg-red-600 text-white font-medium">Automates application deployments to EC2 and Lambda.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>CodeCommit</span></div><div class="card-back bg-red-600 text-white font-medium">Secure and scalable Git-based repository.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodePipeline</span></div><div class="card-back bg-red-600 text-white font-medium">Supports third-party tools like GitHub and Jenkins.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeBuild</span></div><div class="card-back bg-red-600 text-white font-medium">Fully managed continuous integration service.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeDeploy</span></div><div class="card-back bg-red-600 text-white font-medium">Minimizes downtime during deployment updates.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>CodeCommit</span></div><div class="card-back bg-red-600 text-white font-medium">Integrates with IAM for fine-grained permissions.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodePipeline</span></div><div class="card-back bg-red-600 text-white font-medium">Helps enforce consistent release processes.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeBuild</span></div><div class="card-back bg-red-600 text-white font-medium">Scales automatically based on the number of builds.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeDeploy</span></div><div class="card-back bg-red-600 text-white font-medium">Supports Blue/Green and Rolling deployments.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>CodeCommit</span></div><div class="card-back bg-red-600 text-white font-medium">Stores code securely with automatic encryption.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodePipeline</span></div><div class="card-back bg-red-600 text-white font-medium">Integrates easily with other AWS DevOps tools.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeBuild</span></div><div class="card-back bg-red-600 text-white font-medium">Supports multiple programming languages and runtimes.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeDeploy</span></div><div class="card-back bg-red-600 text-white font-medium">Tracks deployment status and errors.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>CodeCommit</span></div><div class="card-back bg-red-600 text-white font-medium">Supports triggers for automatic workflows.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodePipeline</span></div><div class="card-back bg-red-600 text-white font-medium">Quickly deliver features and updates with automation.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeBuild</span></div><div class="card-back bg-red-600 text-white font-medium">Encrypts artifacts in transit and at rest.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-red-100 text-red-800 font-semibold"><span>AWS CodeDeploy</span></div><div class="card-back bg-red-600 text-white font-medium">Can deploy from GitHub, Bitbucket, or S3.</div></div></div>
+    <!-- Additional Flashcard 21 -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+      <div class="card-front bg-red-100 text-red-800 font-semibold">
+        <span>CodeCommit</span>
+      </div>
+      <div class="card-back bg-red-600 text-white font-medium">
+        Integrates seamlessly with AWS CloudTrail for auditing.
+      </div>
+    </div>
+  </div>
+  
+  <!-- Additional Flashcard 22 -->
+  <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+      <div class="card-front bg-red-100 text-red-800 font-semibold">
+        <span>AWS CodePipeline</span>
+      </div>
+      <div class="card-back bg-red-600 text-white font-medium">
+        Enables parallel execution of stages for faster delivery.
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</body>
+</html>

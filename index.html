@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Flashcards & Quiz Master</title>
+
+  <!-- Tailwind Config BEFORE Script -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',  // Enables class-based dark mode
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white font-sans min-h-screen flex flex-col items-center justify-center text-center p-6 transition-colors duration-300">
+
+  <!-- 🌙/☀️ Toggle Button -->
+  <button id="darkToggle" class="absolute top-4 right-4 text-xl px-3 py-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700">
+    
+  </button>
+
+  <div class="max-w-2xl w-full">
+    <h1 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">AWS Flashcards & Quiz Master</h1>
+    <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6">
+      Revise AWS concepts with interactive flashcards and test your knowledge with quizzes!
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-4 justify-center mb-6">
+      <a href="categories.html" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-2xl shadow transition">
+        🚀 Start Flashcards
+      </a>
+      <a href="match.html" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-2xl shadow transition">
+        🧪 Drag and match game
+      </a>
+    </div>
+
+    
+
+    <p class="mt-10 text-sm text-gray-500 italic dark:text-gray-400">
+      "You're cloud-ready! Keep learning. ☁️"
+    </p>
+  </div>
+
+  
+
+</body>
+</html>
+
+

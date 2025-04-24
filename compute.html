@@ -1,0 +1,244 @@
+<!-- compute.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compute Flashcards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card { perspective:1000px; }
+    .card-inner { transition:transform 0.6s; transform-style:preserve-3d; position:relative; width:100%;height:100%; }
+    .flipped .card-inner { transform:rotateY(180deg); }
+    .card-front, .card-back { backface-visibility:hidden; position:absolute; top:0;left:0;width:100%;height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1rem; border-radius:1rem; text-align:center; }
+    .card-front img { width:64px; height:64px; margin-bottom:0.5rem; }
+    .card-back { transform:rotateY(180deg); }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white 
+             font-sans min-h-screen flex flex-col items-center justify-start 
+             text-center p-6 transition-colors duration-300">
+  <h1 class="text-3xl font-bold text-indigo-600 mb-4">Compute Flashcards</h1>
+  <a href="categories.html" class="mb-4 text-indigo-500 hover:underline">← Back to Categories</a>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+
+    <!-- 1. EC2 -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>Amazon EC2</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Virtual servers in the cloud.
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Lambda -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS Lambda</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Run code without managing servers.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ECS -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS ECS</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Run and manage Docker containers.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. EKS -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS EKS</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Managed Kubernetes service.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. AWS Batch -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS Batch</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Run large-scale batch jobs.
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Elastic Beanstalk -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>Elastic Beanstalk</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Deploy and scale web apps easily.
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. AWS Outposts -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS Outposts</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Run AWS services on-premises.
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. AWS Lightsail -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS Lightsail</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Simplified VPS for small apps.
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. AWS Fargate -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS Fargate</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Serverless compute for containers.
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. AWS Wavelength -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+          <span>AWS Wavelength</span>
+        </div>
+        <div class="card-back bg-indigo-600 text-white font-medium">
+          Run apps with ultra-low latency at the edge.
+        </div>
+      </div>
+    </div>
+
+        <!-- 11. AWS Serverless Application Repository -->
+        <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+              <span>Serverless App Repo</span>
+            </div>
+            <div class="card-back bg-indigo-600 text-white font-medium">
+              Discover & deploy serverless apps quickly.
+            </div>
+          </div>
+        </div>
+    
+        <!-- 12. AWS Compute Optimizer -->
+        <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+              <span>Compute Optimizer</span>
+            </div>
+            <div class="card-back bg-indigo-600 text-white font-medium">
+              Recommends optimal AWS compute resources.
+            </div>
+          </div>
+        </div>
+    
+        <!-- 13. AWS App Runner -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+      <span>AWS App Runner</span>
+    </div>
+    <div class="card-back bg-indigo-600 text-white font-medium">
+      Run web apps without managing infrastructure.
+    </div>
+  </div>
+</div>
+
+<!-- 14. AWS Batch -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+      <span>AWS Batch</span>
+    </div>
+    <div class="card-back bg-indigo-600 text-white font-medium">
+      Run large-scale batch processing jobs.
+    </div>
+  </div>
+</div>
+
+<!-- 15. AWS Lightsail -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+      <span>AWS Lightsail</span>
+    </div>
+    <div class="card-back bg-indigo-600 text-white font-medium">
+      Easy-to-use cloud platform for simpler apps.
+    </div>
+  </div>
+</div>
+
+<!-- 16. AWS Outposts -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+      <span>AWS Outposts</span>
+    </div>
+    <div class="card-back bg-indigo-600 text-white font-medium">
+      Run AWS services on-premises.
+    </div>
+  </div>
+</div>
+
+<!-- 17. AWS Elastic Beanstalk -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+      <span>Elastic Beanstalk</span>
+    </div>
+    <div class="card-back bg-indigo-600 text-white font-medium">
+      Deploy & scale web apps easily.
+    </div>
+  </div>
+</div>
+
+<!-- 18. AWS Wavelength -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-indigo-100 text-indigo-800 font-semibold">
+      <span>AWS Wavelength</span>
+    </div>
+    <div class="card-back bg-indigo-600 text-white font-medium">
+      Run apps with ultra-low latency at the edge.
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</body>
+</html>

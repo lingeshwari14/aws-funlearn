@@ -1,0 +1,80 @@
+<!-- observability.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Observability Flashcards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card { perspective: 1000px; }
+    .card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .flipped .card-inner { transform: rotateY(180deg); }
+    .card-front, .card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .card-back { transform: rotateY(180deg); }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white 
+             font-sans min-h-screen flex flex-col items-center justify-start 
+             text-center p-6 transition-colors duration-300">
+  <h1 class="text-3xl font-bold text-pink-600 mb-4">Observability Flashcards</h1>
+  <a href="categories.html" class="mb-4 text-pink-500 hover:underline">← Back to Categories</a>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>Amazon CloudWatch</span></div><div class="card-back bg-pink-700 text-white font-medium">Collects monitoring and operational data in real time.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>Amazon CloudWatch</span></div><div class="card-back bg-pink-700 text-white font-medium">Visualize metrics and set alarms for AWS resources.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>Amazon CloudTrail</span></div><div class="card-back bg-pink-700 text-white font-medium">Tracks user activity and API usage across AWS.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>Amazon CloudTrail</span></div><div class="card-back bg-pink-700 text-white font-medium">Provides event history for governance and auditing.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS X-Ray</span></div><div class="card-back bg-pink-700 text-white font-medium">Helps debug and analyze microservices applications.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS X-Ray</span></div><div class="card-back bg-pink-700 text-white font-medium">Provides end-to-end request tracing for performance bottlenecks.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS CloudWatch Logs</span></div><div class="card-back bg-pink-700 text-white font-medium">Centralized log collection and monitoring.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS CloudWatch Logs</span></div><div class="card-back bg-pink-700 text-white font-medium">Search, analyze, and filter log data from AWS services.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS Config</span></div><div class="card-back bg-pink-700 text-white font-medium">Monitors and records AWS resource configurations.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS Config</span></div><div class="card-back bg-pink-700 text-white font-medium">Audits compliance with defined configurations.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS CloudWatch Synthetics</span></div><div class="card-back bg-pink-700 text-white font-medium">Monitors application endpoints using canaries.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS CloudWatch Synthetics</span></div><div class="card-back bg-pink-700 text-white font-medium">Detects latency and availability issues before users do.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS Trusted Advisor</span></div><div class="card-back bg-pink-700 text-white font-medium">Provides real-time best practices and recommendations.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS Trusted Advisor</span></div><div class="card-back bg-pink-700 text-white font-medium">Checks for cost optimization, performance, and fault tolerance.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS Personal Health Dashboard</span></div><div class="card-back bg-pink-700 text-white font-medium">Provides alerts and remediation guidance for AWS events.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>AWS Personal Health Dashboard</span></div><div class="card-back bg-pink-700 text-white font-medium">Improves transparency during AWS service disruptions.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>Amazon DevOps Guru</span></div><div class="card-back bg-pink-700 text-white font-medium">Uses ML to detect operational issues automatically.</div></div></div>
+
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')"><div class="card-inner"><div class="card-front bg-pink-100 text-pink-800 font-semibold"><span>Amazon DevOps Guru</span></div><div class="card-back bg-pink-700 text-white font-medium">Recommends fixes for anomalous behavior in applications.</div></div></div>
+
+  </div>
+</body>
+</html>

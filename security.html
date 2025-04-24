@@ -1,0 +1,213 @@
+<!-- security.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Security Flashcards</title><script src="https://cdn.tailwindcss.com"></script><style>.card{perspective:1000px}.card-inner{transition:transform .6s;transform-style:preserve-3d;position:relative;width:100%;height:100%}.flipped .card-inner{transform:rotateY(180deg)}.card-front,.card-back{backface-visibility:hidden;position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;border-radius:1rem;text-align:center}.card-front img{width:64px;height:64px;margin-bottom:.5rem}.card-back{transform:rotateY(180deg)}</style></head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white 
+             font-sans min-h-screen flex flex-col items-center justify-start 
+             text-center p-6 transition-colors duration-300">
+
+  <h1 class="text-3xl font-bold text-yellow-600 mb-4">Security Flashcards</h1>
+  <a href="categories.html" class="mb-4 text-yellow-500 hover:underline">← Back to Categories</a>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+    <!-- IAM -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-yellow-100 text-yellow-800 font-semibold"><span>IAM</span></div>
+        <div class="card-back bg-yellow-700 text-white font-medium">Manage access to AWS services and resources securely.</div>
+      </div>
+    </div>
+    <!-- KMS -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-yellow-100 text-yellow-800 font-semibold"><span>AWS KMS</span></div>
+        <div class="card-back bg-yellow-700 text-white font-medium">Managed encryption keys for your data.</div>
+      </div>
+    </div>
+
+    <!-- IAM -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS IAM</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Fine-grained access control to AWS services and resources.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS IAM</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Supports multi-factor authentication (MFA) for enhanced security.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Shield -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS Shield</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Provides DDoS protection for AWS applications.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS Shield</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Two levels: Standard (free) and Advanced (subscription-based).
+    </div>
+  </div>
+</div>
+
+<!-- AWS WAF -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS WAF</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Protects web apps from SQL injection and XSS.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS WAF</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Allows creation of custom traffic filtering rules.
+    </div>
+  </div>
+</div>
+
+<!-- AWS KMS -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS KMS</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Manages cryptographic keys for secure data handling.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS KMS</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Integrates with S3, EBS, Redshift, and more for encryption.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Config -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS Config</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Tracks resource configuration changes and compliance.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS Config</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Helps audit and monitor configuration drift in real-time.
+    </div>
+  </div>
+</div>
+
+<!-- Amazon Inspector -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>Amazon Inspector</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Scans EC2 for vulnerabilities and unintended network exposure.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>Amazon Inspector</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Automatically assesses software vulnerabilities in EC2.
+    </div>
+  </div>
+</div>
+
+<!-- Secrets Manager -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>Secrets Manager</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Manages access to secrets like API keys and credentials.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>Secrets Manager</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Automatically rotates secrets with minimal effort.
+    </div>
+  </div>
+</div>
+
+<!-- CloudTrail -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS CloudTrail</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Records API activity for auditing and compliance.
+    </div>
+  </div>
+</div>
+
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-yellow-100 text-yellow-800 font-semibold">
+      <span>AWS CloudTrail</span>
+    </div>
+    <div class="card-back bg-yellow-700 text-white font-medium">
+      Delivers event logs to Amazon S3 for long-term retention.
+    </div>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>

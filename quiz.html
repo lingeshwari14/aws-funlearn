@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Puzzle Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .draggable { cursor: move; }
+    .droppable { border: 2px dashed #ccc; min-height: 3rem; transition: background-color 0.3s; }
+    .droppable.correct { background-color: #86efac !important; } /* green-300 */
+    .droppable.wrong { background-color: #fca5a5 !important; }   /* red-300 */
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white font-sans p-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold text-center text-indigo-600 mb-4">🧩 AWS Puzzle Game</h1>
+    <div class="text-center mb-4">
+      <button onclick="setLevel(1)" class="bg-indigo-500 text-white px-4 py-2 rounded m-1">Level 1</button>
+      <button onclick="setLevel(2)" class="bg-indigo-500 text-white px-4 py-2 rounded m-1">Level 2</button>
+      <button onclick="setLevel(3)" class="bg-indigo-500 text-white px-4 py-2 rounded m-1">Level 3</button>
+    </div>
+
+    <div id="puzzle" class="grid grid-cols-2 gap-4"></div>
+    <p id="result" class="mt-4 text-lg text-center font-semibold"></p>
+  </div>
+
+  <script>
+    const levels = {
+      1: [
+        { name: 'S3', match: 'Object Storage' },
+        { name: 'EC2', match: 'Virtual Server' },
+        { name: 'RDS', match: 'Relational DB' },
+        { name: 'IAM', match: 'Identity Management' }
+      ],
+      2: [
+        { name: 'Lambda', match: 'Serverless Compute' },
+        { name: 'CloudFront', match: 'CDN' }
+      ],
+      3: [
+        { name: 'CloudWatch', match: 'Monitoring' },
+        { name: 'VPC', match: 'Private Network' }
+      ]
+    };
+    let currentPairs = [];
+
+    function setLevel(level) {
+      const base = [...levels[1]];
+      if (level >= 2) base.push(...levels[2]);
+      if (level >= 3) base.push(...levels[3]);
+      currentPairs = base;
+      loadPuzzle();
+    }
+
+    function loadPuzzle() {
+      const puzzle = document.getElementById('puzzle');
+      const result = document.getElementById('result');
+      result.textContent = '';
+
+      puzzle.innerHTML = '';
+      const services = shuffle(currentPairs.map(p => p.name));
+      const functions = shuffle(currentPairs.map(p => p.match));
+
+      const serviceDiv = document.createElement('div');
+      const matchDiv = document.createElement('div');
+
+      serviceDiv.className = 'space-y-2';
+      matchDiv.className = 'space-y-2';
+
+      services.forEach(name => {
+        const div = document.createElement('div');
+        div.draggable = true;
+        div.textContent = name;
+        div.className = 'draggable bg-white dark:bg-gray-700 px-4 py-2 rounded shadow';
+        div.dataset.service = name;
+        div.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', name));
+        serviceDiv.appendChild(div);
+      });
+
+      functions.forEach(text => {
+        const dropZone = document.createElement('div');
+        dropZone.className = 'droppable bg-white dark:bg-gray-800 px-4 py-2 rounded shadow';
+        dropZone.textContent = text;
+        dropZone.dataset.match = text;
+
+        dropZone.addEventListener('dragover', e => e.preventDefault());
+        dropZone.addEventListener('drop', e => {
+          e.preventDefault();
+          const name = e.dataTransfer.getData('text/plain');
+          const pair = currentPairs.find(p => p.name === name && p.match === text);
+          if (pair) {
+            dropZone.classList.add('correct');
+            dropZone.textContent = `${name} → ${text}`;
+            // Remove the matched service
+            const svc = document.querySelector(`[data-service="${name}"]`);
+            svc && svc.remove();
+            checkWin();
+          } else {
+            dropZone.classList.add('wrong');
+            setTimeout(() => dropZone.classList.remove('wrong'), 800);
+          }
+        });
+        matchDiv.appendChild(dropZone);
+      });
+
+      puzzle.appendChild(serviceDiv);
+      puzzle.appendChild(matchDiv);
+    }
+
+    function checkWin() {
+      if (!document.querySelector('.draggable')) {
+        document.getElementById('result').textContent = '🎉 All matches correct!';
+      }
+    }
+
+    function shuffle(array) {
+      return array.sort(() => 0.5 - Math.random());
+    }
+
+    setLevel(1);
+  </script>
+</body>
+</html>
+

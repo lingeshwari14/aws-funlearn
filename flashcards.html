@@ -1,0 +1,72 @@
+<!-- flashcards.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Flashcards Grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } } };
+  </script>
+  <style>
+    .card { perspective: 1000px; }
+    .card-inner { transition: transform 0.6s; transform-style: preserve-3d; position: relative; width:100%;height:100%; }
+    .flipped .card-inner { transform: rotateY(180deg); }
+    .card-front, .card-back { backface-visibility:hidden; position:absolute; top:0;left:0;width:100%;height:100%; display:flex;align-items:center;justify-content:center;padding:1rem;border-radius:1rem;text-align:center; }
+    .card-front { background-color:#e0e7ff; color:#3730a3; font-weight:600; }
+    .card-back { background-color:#3730a3; color:white; transform:rotateY(180deg); font-weight:500; }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen p-6">
+  <h1 class="text-3xl font-bold text-indigo-600 text-center mb-6">AWS Flashcards - <span id="currentCategory"></span></h1>
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 max-w-5xl mx-auto">
+    <input type="text" id="searchInput" placeholder="Search flashcards..." class="w-full md:w-1/2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+    
+    <button id="resetBtn" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Reset All Flips</button>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto" id="flashcardGrid"></div>
+  <script>
+    const flashcards = [
+      { front:"EC2", back:"Resizable compute capacity.", category:"Compute" },
+      { front:"S3", back:"Object storage for any amount of data.", category:"Storage" },
+      { front:"Lambda", back:"Run code without servers.", category:"Compute" },
+      { front:"RDS", back:"Managed relational databases.", category:"Database" },
+      { front:"IAM", back:"Manage access securely.", category:"Security" },
+      { front:"CloudFront", back:"Low-latency content delivery.", category:"Networking" },
+      { front:"VPC", back:"Virtual network for resources.", category:"Networking" },
+      { front:"CLI", back:"Command-line AWS management.", category:"Developer Tools" },
+      { front:"CloudWatch", back:"Real-time resource monitoring.", category:"Monitoring" }
+    ];
+    const container = document.getElementById('flashcardGrid');
+    const searchInput = document.getElementById('searchInput');
+    const resetBtn = document.getElementById('resetBtn');
+    const currentCategoryEl = document.getElementById('currentCategory');
+
+    // Load selected category and pre-set filter
+    const selectedCategory = localStorage.getItem('selectedCategory') || 'all';
+    currentCategoryEl.textContent = selectedCategory;
+    categoryFilter.value = selectedCategory;
+
+    function renderCards() {
+      container.innerHTML = '';
+      const term = searchInput.value.toLowerCase();
+      const cat = categoryFilter.value;
+      flashcards.forEach((f, i) => {
+        if ((cat==='all'||f.category===cat) && (f.front.toLowerCase().includes(term)||f.back.toLowerCase().includes(term))) {
+          const card = document.createElement('div'); card.className='card bg-white shadow-xl rounded-2xl h-48 cursor-pointer relative';
+          const inner = document.createElement('div'); inner.className='card-inner';
+          const front = document.createElement('div'); front.className='card-front'; front.textContent=f.front;
+          const back = document.createElement('div'); back.className='card-back'; back.textContent=f.back;
+          inner.append(front, back); card.append(inner);
+          card.onclick = () => card.classList.toggle('flipped');
+          container.append(card);
+        }
+      });
+    }
+    searchInput.oninput = renderCards;
+    resetBtn.onclick = () => document.querySelectorAll('.card.flipped').forEach(c=>c.classList.remove('flipped'));
+    renderCards();
+  </script>
+</body>
+</html>

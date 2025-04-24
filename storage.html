@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storage Flashcards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> /* same card styles as compute */ .card { perspective:1000px; } .card-inner { transition:transform 0.6s; transform-style:preserve-3d; position:relative; width:100%;height:100%; } .flipped .card-inner { transform:rotateY(180deg); } .card-front, .card-back { backface-visibility:hidden; position:absolute; top:0;left:0;width:100%;height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1rem; border-radius:1rem; text-align:center; } .card-front img { width:64px; height:64px; margin-bottom:0.5rem; } .card-back { transform:rotateY(180deg); } </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white 
+             font-sans min-h-screen flex flex-col items-center justify-start 
+             text-center p-6 transition-colors duration-300">
+
+      <h1 class="text-3xl font-bold text-green-600 mb-4">Storage Flashcards</h1>
+  <a href="categories.html" class="mb-4 text-green-500 hover:underline">← Back to Categories</a>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+    <!-- S3 -->
+    <div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front bg-green-100 text-green-800 font-semibold">
+          
+          <span>Amazon S3</span>
+        </div>
+        <div class="card-back bg-green-600 text-white font-medium">
+          Object storage built to store and retrieve any amount of data.
+        </div>
+      </div>
+    </div>
+    <!-- EC2 Instance Store -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>EC2 Instance Store</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Temporary block storage for EC2 instances.
+    </div>
+  </div>
+</div>
+
+<!-- EBS -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>Amazon EBS</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Persistent block storage for EC2.
+    </div>
+  </div>
+</div>
+
+<!-- EFS -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>Amazon EFS</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Scalable file storage for Linux.
+    </div>
+  </div>
+</div>
+
+<!-- RDS -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>Amazon RDS</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Managed relational database service.
+    </div>
+  </div>
+</div>
+
+<!-- Aurora -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>Amazon Aurora</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      High-performance MySQL/PostgreSQL-compatible DB.
+    </div>
+  </div>
+</div>
+
+<!-- DynamoDB -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>DynamoDB</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Fully managed NoSQL database.
+    </div>
+  </div>
+</div>
+
+
+
+<!-- CloudFront -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      
+      <span>Amazon CloudFront</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Content delivery network (CDN).
+    </div>
+  </div>
+</div>
+
+<!-- ElastiCache -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>ElastiCache</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      In-memory cache for fast performance.
+    </div>
+  </div>
+</div>
+
+<!-- OpenSearch -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>OpenSearch</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Search and analytics engine.
+    </div>
+  </div>
+</div>
+
+<!-- Athena -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>Amazon Athena</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Query data in S3 using SQL.
+    </div>
+  </div>
+</div>
+
+<!-- MemoryDB for Redis -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>MemoryDB for Redis</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Redis-compatible in-memory database.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Backup -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>AWS Backup</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Centralized backup service for AWS resources.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Glue -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>AWS Glue</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Serverless data integration for ETL processes.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Lake Formation -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>Lake Formation</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Build secure data lakes quickly and easily.
+    </div>
+  </div>
+</div>
+
+<!-- AWS DataSync -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>AWS DataSync</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Transfer data between on-premises and AWS.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Snowball -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>AWS Snowball</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Physical data transport device for large transfers.
+    </div>
+  </div>
+</div>
+
+<!-- AWS Storage Gateway -->
+<div class="card bg-white shadow-lg rounded-xl h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+    <div class="card-front bg-green-100 text-green-800 font-semibold">
+      <span>Storage Gateway</span>
+    </div>
+    <div class="card-back bg-green-600 text-white font-medium">
+      Hybrid cloud storage with on-prem access.
+    </div>
+  </div>
+</div>
+
+
+   
+  </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Puzzle Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    .draggable { cursor: move; }
+    .droppable { border: 2px dashed #ccc; min-height: 3rem; transition: background-color 0.3s; }
+    .droppable.correct { background-color: #86efac !important; }
+    .droppable.wrong { background-color: #fca5a5 !important; }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white font-sans p-6 min-h-screen flex flex-col items-center justify-center text-center transition-colors duration-300">
+
+  <a href="index.html" class="absolute top-4 left-4 text-sm md:text-base text-gray-600 hover:underline">← Back to Home</a>
+
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold text-center text-indigo-600 mb-6">🔀 AWS Drag & Match</h1>
+    <p class="text-center mb-8">Drag the AWS service name to its correct description!</p>
+    <div class="text-center mb-4">
+      <button onclick="setLevel(1)" class="bg-indigo-500 text-white px-4 py-2 rounded m-1">Level 1</button>
+      <button onclick="setLevel(2)" class="bg-indigo-500 text-white px-4 py-2 rounded m-1">Level 2</button>
+      <button onclick="setLevel(3)" class="bg-indigo-500 text-white px-4 py-2 rounded m-1">Level 3</button>
+    </div>
+
+    <div id="puzzle" class="grid grid-cols-2 gap-4"></div>
+    <p id="result" class="mt-4 text-lg text-center font-semibold"></p>
+  </div>
+
+  <script>
+    const levels = {
+      1: [
+        { name: 'S3', match: 'Object Storage' },
+        { name: 'EC2', match: 'Virtual Server' },
+        { name: 'RDS', match: 'Relational DB' },
+        { name: 'IAM', match: 'Identity Management' },
+        { name: 'EBS', match: 'Block Storage' },
+        { name: 'Lightsail', match: 'Simple Virtual Private Server' },
+        { name: 'Elastic Beanstalk', match: 'PaaS for Web Apps' }
+      ],
+      2: [
+        { name: 'Lambda', match: 'Serverless Compute' },
+        { name: 'CloudFront', match: 'CDN' },
+        { name: 'API Gateway', match: 'Managed API Hosting' },
+        { name: 'Step Functions', match: 'Serverless Orchestration' },
+        { name: 'App Runner', match: 'Container App Deployment' },
+        { name: 'Fargate', match: 'Serverless Containers' },
+        { name: 'CodePipeline', match: 'CI/CD Orchestration' }
+      ],
+      3: [
+        { name: 'CloudWatch', match: 'Monitoring' },
+        { name: 'VPC', match: 'Private Network' },
+        { name: 'X-Ray', match: 'Distributed Tracing' },
+        { name: 'GuardDuty', match: 'Threat Detection' },
+        { name: 'AWS Config', match: 'Resource Compliance' },
+        { name: 'CloudTrail', match: 'Audit Logging' },
+        { name: 'Trusted Advisor', match: 'Best Practice Checks' }
+      ]
+    };
+
+    let currentPairs = [];
+
+    function setLevel(level) {
+      currentPairs = levels[level];
+      loadPuzzle();
+    }
+
+    function loadPuzzle() {
+      const puzzle = document.getElementById('puzzle');
+      const result = document.getElementById('result');
+      result.textContent = '';
+
+      puzzle.innerHTML = '';
+      const services = shuffle(currentPairs.map(p => p.name));
+      const functions = shuffle(currentPairs.map(p => p.match));
+
+      const serviceDiv = document.createElement('div');
+      const matchDiv = document.createElement('div');
+
+      serviceDiv.className = 'space-y-2';
+      matchDiv.className = 'space-y-2';
+
+      services.forEach(name => {
+        const div = document.createElement('div');
+        div.draggable = true;
+        div.textContent = name;
+        div.className = 'draggable bg-white dark:bg-gray-700 px-4 py-2 rounded shadow';
+        div.dataset.service = name;
+        div.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', name));
+        serviceDiv.appendChild(div);
+      });
+
+      functions.forEach(text => {
+        const dropZone = document.createElement('div');
+        dropZone.className = 'droppable bg-white dark:bg-gray-800 px-4 py-2 rounded shadow';
+        dropZone.textContent = text;
+        dropZone.dataset.match = text;
+
+        dropZone.addEventListener('dragover', e => e.preventDefault());
+        dropZone.addEventListener('drop', e => {
+          e.preventDefault();
+          const name = e.dataTransfer.getData('text/plain');
+          const pair = currentPairs.find(p => p.name === name && p.match === text);
+          if (pair) {
+            dropZone.classList.add('correct');
+            dropZone.textContent = `${name} → ${text}`;
+            const svc = document.querySelector(`[data-service="${name}"]`);
+            svc && svc.remove();
+            checkWin();
+          } else {
+            dropZone.classList.add('wrong');
+            setTimeout(() => dropZone.classList.remove('wrong'), 800);
+          }
+        });
+        matchDiv.appendChild(dropZone);
+      });
+
+      puzzle.appendChild(serviceDiv);
+      puzzle.appendChild(matchDiv);
+    }
+
+    function checkWin() {
+      if (!document.querySelector('.draggable')) {
+        document.getElementById('result').textContent = '🎉 All matches correct!';
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      }
+    }
+
+    function shuffle(array) {
+      return array.sort(() => 0.5 - Math.random());
+    }
+
+    setLevel(1);
+  </script>
+</body>
+</html>
